@@ -8,12 +8,19 @@
 </head>
 <body>
   <h1 id="main-title">Battle of the Kittens</h1>
+  <h3>Pick the Cutest Kitten!</h3>
+
   <div id="container">
-  <div id="cat-left"></div>
+  <a id="leftClick" href>
+    <div id="cat-left" name="cat-left"></div>
+  </a>
   <canvas id="graph" width="200" height="200"></canvas>
-  <div id="cat-right"></div>
+  <a id="rightClick" href>
+    <div id="cat-right"></div>
+  </a>
   </div>
-  <script src="vote_tracker_js_deps_jquery.js"</script>
+
+  <script src="vote_tracker_js_deps/jquery.js"></script>
   <script src="vote_track.js"></script>
 </body>
 </html>
