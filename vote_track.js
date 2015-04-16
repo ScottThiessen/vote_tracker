@@ -5,15 +5,15 @@ $(function() {
   var data = [
   {
     value: 50,
-    color: '#0000ff',
+    color: '#ff6138',
     highlight: '#5c67ff',
-    label: 'Pig'
+    label: 'Right'
   },
   {
     value: 50,
-    color: 'green',
+    color: '#ffff9d',
     highlight: '#00db21',
-    label: 'Horse'
+    label: 'Left'
   },
   ];
 
@@ -67,15 +67,9 @@ $(function() {
 
   var rand = Math.floor(Math.random() * catArray.length);
   var rand2 = Math.floor(Math.random() * catArray.length);
-  var newRand = Math.floor(Math.random() * catArray.length);
-  var newRand2 = Math.floor(Math.random() * catArray.length);
 
   if (rand === rand2) {
     rand2 = Math.floor(rand2 / 2);
-  } else if (newRand === rand2) {
-    newRand = Math.floor(newRand / 2);
-  } else if (newRand === newRand2) {
-    newRand2 = Math.floor(newRand2 / 2);
   };
 
   $('<img />', {id: 'leftImg', src: catArray[rand].imgPath}).appendTo($('#cat-left')).height(285).width(285);
@@ -84,7 +78,6 @@ $(function() {
 
   $('#leftClick').click(function(e) {
     this.votes + 1;
-
   });
 
   $('#rightClick').click(function(f) {
