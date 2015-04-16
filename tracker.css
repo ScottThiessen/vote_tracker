@@ -1,6 +1,8 @@
 body {
-  background-color: #a7dcf2;
+  background-color: #00a388;
   width: 1200px;
+  font-family: 'Covered By Your Grace', cursive;
+  color: #79BD8F;
 }
 
 #main-title {
@@ -29,7 +31,7 @@ h3 {
 #cat-left {
   width: 300px;
   height: 300px;
-  background-color: green;
+  background-color: #ffff9d;
   position: absolute;
   top: 100px;
   left: 50px;
@@ -39,7 +41,7 @@ h3 {
 #cat-right {
   width:300px;
   height: 300px;
-  background-color: blue;
+  background-color: #ff6138;
   position: absolute;
   top: 100px;
   left: 660px;
