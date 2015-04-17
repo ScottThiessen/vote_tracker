@@ -4,15 +4,15 @@ $(function() {
   //pie chart
   var data = [
   {
-    value: 50,
+    value: 1,
     color: '#ff6138',
-    highlight: '#5c67ff',
+    highlight: '#FF8F8F',
     label: 'Right'
   },
   {
-    value: 50,
+    value: 1,
     color: '#ffff9d',
-    highlight: '#00db21',
+    highlight: '#F7FFC4',
     label: 'Left'
   },
   ];
@@ -20,71 +20,101 @@ $(function() {
   var options = {
     segmentShowStroke: true,
     animateScale: true
-  }
+  };
 
   var graph = document.getElementById('graph').getContext('2d');
-  new Chart(graph).Doughnut(data, options);
-  //end pie chart
+  var chart = new Chart(graph).Doughnut(data, options);
 
-  var catArray = [];
+
+    var catImgs = [];
+
+    $.ajax({
+      url: 'https://api.imgur.com/3/album/uGpCq.json',
+      method: 'GET',
+      headers: {'Authorization': 'Client-ID 9645782d9872f4d'},
+    });
+
+    /*xhr.done(function(res) {
+      if(res.status === 200) {
+
+        }
+      }
+    })
+  });*/
 
   var Kitten = function(name, imgPath) {
     this.name = name;
     this.imgPath = imgPath;
-    this.votes = 0;
   };
 
-  var cat0 = new Kitten('Whiskers', 'trackerImgs/Cat0.jpg');
-  var cat1 = new Kitten('Joe', 'trackerImgs/Cat1.jpg');
-  var cat2 = new Kitten('6god', 'trackerImgs/Cat2.jpg');
-  var cat3 = new Kitten('Woes', 'trackerImgs/Cat3.jpg');
-  var cat4 = new Kitten('Legend', 'trackerImgs/Cat4.jpg');
-  var cat5 = new Kitten('Phillip', 'trackerImgs/Cat5.jpg');
-  var cat6 = new Kitten('Curt', 'trackerImgs/Cat7.jpg');
-  var cat7 = new Kitten('Drake', 'trackerImgs/Cat8.jpg');
-  var cat8 = new Kitten('Ludacris', 'trackerImgs/Cat9.jpg');
-  var cat9 = new Kitten('Legolas', 'trackerImgs/Cat10.jpg');
-  var cat10 = new Kitten('Milkyway', 'trackerImgs/Cat11.jpg');
-  var cat11 = new Kitten('Bilbo', 'trackerImgs/Cat12.jpg');
-  var cat12 = new Kitten('Frodo', 'trackerImgs/Cat13.jpg');
-  var cat13 = new Kitten('Donatello', 'trackerImgs/Cat14.jpg');
-  catArray.push(cat0);
-  catArray.push(cat1);
-  catArray.push(cat2);
-  catArray.push(cat3);
-  catArray.push(cat4);
-  catArray.push(cat5);
-  catArray.push(cat6);
-  catArray.push(cat7);
-  catArray.push(cat8);
-  catArray.push(cat9);
-  catArray.push(cat10);
-  catArray.push(cat11);
-  catArray.push(cat12);
-  catArray.push(cat13);
+  var cat0 = new Kitten('Whiskers', 'http://i.imgur.com/MwjXCad.jpg');
+  var cat1 = new Kitten('Joe', 'http://i.imgur.com/1AUbasg.jpg');
+  var cat2 = new Kitten('6god', 'http://i.imgur.com/pEsWPRv.jpg');
+  var cat3 = new Kitten('Woes', 'http://i.imgur.com/Cj59Zt9.jpg');
+  var cat4 = new Kitten('Legend', 'http://i.imgur.com/3n4shvg.jpg');
+  var cat5 = new Kitten('Phillip', 'http://i.imgur.com/6pG4ex6.jpg');
+  var cat6 = new Kitten('Curt', 'http://i.imgur.com/m79DcWs.jpg');
+  var cat7 = new Kitten('Drake', 'http://i.imgur.com/2envTS4.jpg');
+  var cat8 = new Kitten('Ludacris', 'http://i.imgur.com/xCTf9Q4.jpg');
+  var cat9 = new Kitten('Legolas', 'http://i.imgur.com/CnPwYo1.jpg');
+  var cat10 = new Kitten('Milkyway', 'http://i.imgur.com/mtcYDjl.jpg');
+  var cat11 = new Kitten('Bilbo', 'http://i.imgur.com/cfsy6KE.jpg');
+  var cat12 = new Kitten('Frodo', 'http://i.imgur.com/qnS5CtF.jpg');
+  var cat13 = new Kitten('Donatello', 'http://i.imgur.com/YZw4ka1.jpg');
+  catImgs.push(cat0);
+  catImgs.push(cat1);
+  catImgs.push(cat2);
+  catImgs.push(cat3);
+  catImgs.push(cat4);
+  catImgs.push(cat5);
+  catImgs.push(cat6);
+  catImgs.push(cat7);
+  catImgs.push(cat8);
+  catImgs.push(cat9);
+  catImgs.push(cat10);
+  catImgs.push(cat11);
+  catImgs.push(cat12);
+  catImgs.push(cat13);
 
-  console.log(catArray);
+  var rand = Math.floor(Math.random() * catImgs.length);
+  var rand2 = Math.floor(Math.random() * catImgs.length);
 
-  var rand = Math.floor(Math.random() * catArray.length);
-  var rand2 = Math.floor(Math.random() * catArray.length);
-
-  if (rand === rand2) {
-    rand2 = Math.floor(rand2 / 2);
+  var imgRender = function() {
+    rand = Math.floor(Math.random() * catImgs.length);
+    rand2 = Math.floor(Math.random() * catImgs.length);
+      while (rand === rand2) {
+        rand2 = Math.floor(rand2 / 3) + 1;
+      }
   };
 
-  $('<img />', {id: 'leftImg', src: catArray[rand].imgPath}).appendTo($('#cat-left')).height(285).width(285);
-  $('<img />', {id: 'rightImg', src: catArray[rand2].imgPath}).appendTo($('#cat-right')).height(285).width(285);
+  while (rand === rand2) {
+    rand2 = Math.floor(rand2 / 3) + 1;
+  };
 
 
-  $('#leftClick').click(function(e) {
-    this.votes + 1;
+  $('<img />', {id: 'leftImg', src: catImgs[rand].imgPath}).appendTo($('#cat-left')).height(285).width(285);
+  $('<img />', {id: 'rightImg', src: catImgs[rand2].imgPath}).appendTo($('#cat-right')).height(285).width(285);
+
+
+  $('#cat-left').click(function(e) {
+    e.preventDefault();
+    chart.segments[1].value++;
+    chart.update();
+    $('#leftImg').remove();
+    $('#rightImg').remove();
+    imgRender();
+    $('<img />', {id: 'rightImg', src: catImgs[rand2].imgPath}).appendTo($('#cat-right')).height(285).width(285);
+    $('<img />', {id: 'leftImg', src: catImgs[rand].imgPath}).appendTo($('#cat-left')).height(285).width(285);
   });
 
-  $('#rightClick').click(function(f) {
-    this.votes +1;
+  $('#cat-right').click(function(f) {
+    f.preventDefault();
+    chart.segments[0].value++;
+    chart.update();
+    $('#rightImg').remove();
+    $('#leftImg').remove();
+    imgRender();
+    $('<img />', {id: 'rightImg', src: catImgs[rand2].imgPath}).appendTo($('#cat-right')).height(285).width(285);
+    $('<img />', {id: 'leftImg', src: catImgs[rand].imgPath}).appendTo($('#cat-left')).height(285).width(285);
   });
-
-
-  console.log(rightImg);
-
 });
