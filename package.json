@@ -1,0 +1,22 @@
+{
+  "name": "vote_tracker",
+  "version": "1.0.0",
+  "description": "Have a basic semi functional vote tracker website. Only thing missing is the, well, vote tracking. Have it at a point where no 2 cats will appear at the same time.",
+  "main": "chart.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ScottThiessen/vote_tracker.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ScottThiessen/vote_tracker/issues"
+  },
+  "homepage": "https://github.com/ScottThiessen/vote_tracker",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
