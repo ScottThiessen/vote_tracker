@@ -34,18 +34,11 @@ $(function() {
       headers: {'Authorization': 'Client-ID 9645782d9872f4d'},
     });
 
-    /*xhr.done(function(res) {
-      if(res.status === 200) {
-
-        }
-      }
-    })
-  });*/
 
   var Kitten = function(name, imgPath) {
     this.name = name;
     this.imgPath = imgPath;
-  };
+  }
 
   var cat0 = new Kitten('Whiskers', 'http://i.imgur.com/MwjXCad.jpg');
   var cat1 = new Kitten('Joe', 'http://i.imgur.com/1AUbasg.jpg');
@@ -61,20 +54,7 @@ $(function() {
   var cat11 = new Kitten('Bilbo', 'http://i.imgur.com/cfsy6KE.jpg');
   var cat12 = new Kitten('Frodo', 'http://i.imgur.com/qnS5CtF.jpg');
   var cat13 = new Kitten('Donatello', 'http://i.imgur.com/YZw4ka1.jpg');
-  catImgs.push(cat0);
-  catImgs.push(cat1);
-  catImgs.push(cat2);
-  catImgs.push(cat3);
-  catImgs.push(cat4);
-  catImgs.push(cat5);
-  catImgs.push(cat6);
-  catImgs.push(cat7);
-  catImgs.push(cat8);
-  catImgs.push(cat9);
-  catImgs.push(cat10);
-  catImgs.push(cat11);
-  catImgs.push(cat12);
-  catImgs.push(cat13);
+  catImgs.push(cat0, cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9, cat10, cat11, cat12, cat13);
 
   var rand = Math.floor(Math.random() * catImgs.length);
   var rand2 = Math.floor(Math.random() * catImgs.length);
@@ -85,11 +65,11 @@ $(function() {
       while (rand === rand2) {
         rand2 = Math.floor(rand2 / 3) + 1;
       }
-  };
+  }
 
   while (rand === rand2) {
     rand2 = Math.floor(rand2 / 3) + 1;
-  };
+  }
 
 
   $('<img />', {id: 'leftImg', src: catImgs[rand].imgPath}).appendTo($('#cat-left')).height(285).width(285);
